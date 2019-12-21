@@ -2,9 +2,16 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     module: {
-
-
         rules: [
+            // babel
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            },
+            // html loader
             {
                 test: /\.html$/,
                 use: [
@@ -12,6 +19,16 @@ module.exports = {
                         loader: 'html-loader',
                         options: { minimize: true }
                     }
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
                 ]
             },
         ]
