@@ -1,5 +1,8 @@
 import { bro } from './bro'
-import './styles/style.css'
+import './style.css'
+
+
+
 console.log(bro('Sup'));
 
 // Style laoder not working
